@@ -1,3 +1,7 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.description %></p>
+<p>
+  Created by: <%= @article.user.firstname %>
+  on <%= @article.created_at.strftime('%b %d, %Y at %H:%M:%S') %>
+</p>
 <p><%= link_to "Back", articles_path %></p>
