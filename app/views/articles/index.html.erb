@@ -1,0 +1,21 @@
+<h1>My blog</h1>
+
+<% if @articles.any? %>
+  <table>
+    <th>Title</th>
+    <th>Description</th>
+    <th colspan="3">Actions</th>
+    <% @articles.each do | article | %>
+      <tr>
+        <td><p><%= article.title %></p></td>
+        <td><p><%= article.description %></p></td>
+        <td><%= link_to 'Detail', article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Delete', article_path(article), data: { turbo_confirm: 'Do you really want to delete this article?',  "turbo-method": :delete} %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
+<%= link_to 'Create article', new_article_path %>
